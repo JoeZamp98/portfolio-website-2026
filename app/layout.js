@@ -1,5 +1,7 @@
-import { Playfair_Display, IBM_Plex_Mono, Inter } from "/next/font/google";
+import { Playfair_Display, IBM_Plex_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/Nav";
+import { T } from "@/lib/tokens";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -23,7 +25,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "Joe Zampitella",
-  description: "Full-Stack Engineer · Chicago Booth MBA Candidate",
+  description: "Full-Stack Engineer · Chicago Booth MBA",
 };
 
 export default function RootLayout({ children }) {
@@ -32,7 +34,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${playfair.variable} ${mono.variable} ${inter.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }
