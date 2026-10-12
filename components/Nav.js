@@ -34,7 +34,7 @@ export default function Nav() {
       <Link
         href="/"
         style={{
-          fontFamily: "var(--font-playfair)",
+          fontFamily: "var(--font-abolition)",
           fontSize: "1.05rem",
           fontWeight: 700,
           color: SWATCHES.charcoal,
