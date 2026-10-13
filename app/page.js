@@ -3,6 +3,7 @@
 import { SWATCHES } from "@/lib/tokens";
 import Typewriter from "@/components/Typewriter";
 import Link from "next/link";
+import Timeline from "@/components/Timeline";
 
 const TILES = [
   { label: "Resume", sub: "Experience & skills", href: "/resume" },
@@ -129,55 +130,7 @@ export default function Home() {
           </div>
 
           {/* Page tiles */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              border: `1px solid ${SWATCHES.creamDark}`,
-              maxWidth: 440,
-            }}
-          >
-            {TILES.map(({ label, sub, href }, i) => (
-              <Link
-                key={href}
-                href={href}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 4,
-                  padding: "1rem 1.25rem",
-                  borderRight:
-                    i < 2 ? `1px solid ${SWATCHES.creamDark}` : "none",
-                  transition: "background 0.15s",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.background = SWATCHES.creamMid)
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.background = "transparent")
-                }
-              >
-                <span
-                  style={{
-                    fontSize: "0.8rem",
-                    fontWeight: 500,
-                    color: SWATCHES.charcoal,
-                  }}
-                >
-                  {label}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.62rem",
-                    color: SWATCHES.charcoal50,
-                  }}
-                >
-                  {sub}
-                </span>
-              </Link>
-            ))}
-          </div>
+          <Timeline/>
         </div>
       </div>
 
