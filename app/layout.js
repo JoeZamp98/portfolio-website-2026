@@ -33,8 +33,21 @@ const mono = JetBrains_Mono({
 })
 
 export const metadata = {
-  title: 'Joe Zampitella',
-  description: 'Full-Stack Engineer · Chicago Booth MBA',
+  title: 'Joe Zampitella — Full-Stack Engineer',
+  description: 'Full-Stack Engineer and Chicago Booth MBA candidate. Four years building data platforms, cloud infrastructure, and client-facing products at Veris Insights.',
+  openGraph: {
+    title: 'Joe Zampitella',
+    description: 'Full-Stack Engineer · Chicago Booth MBA',
+    url: 'https://joezampitella.com',
+    siteName: 'Joe Zampitella',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Joe Zampitella',
+    description: 'Full-Stack Engineer · Chicago Booth MBA',
+  },
 }
 
 export default function RootLayout({ children }) {

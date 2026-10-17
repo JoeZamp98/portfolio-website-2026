@@ -82,19 +82,6 @@ export default function Home() {
                   "linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 40%)",
               }}
             />
-            <span
-              style={{
-                position: "absolute",
-                bottom: "1.25rem",
-                left: "1.25rem",
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.6rem",
-                color: "rgba(242,237,228,0.5)",
-                letterSpacing: "0.06em",
-              }}
-            >
-              Chicago, IL
-            </span>
           </div>
         </div>
 
@@ -146,15 +133,18 @@ export default function Home() {
           >
             <p>
               I build data platforms, cloud infrastructure, and client-facing
-              products from zero to one — the kind that actually ship and stay
-              running.
+              products from zero to one — the kind that actually ship and stay running.
             </p>
             <p style={{ marginTop: "0.85rem" }}>
-              Four years at Veris Insights. 250+ enterprise clients. Evening MBA
-              at Booth. I think hard about both the code and the business case
-              behind it.
+              Four years at Veris Insights. 250+ enterprise clients. Evening MBA at Booth. I think hard about both the code and the business case behind it.
             </p>
           </div>
+
+          <div style={{
+            fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
+            color: SWATCHES.charcoal30, letterSpacing: '0.06em', marginTop: '0.4rem',
+            marginBottom: '1.25rem',
+          }}>Chicago, IL / New York, NY</div>
 
           {/* Page tiles */}
           {/* <Timeline/> */}
