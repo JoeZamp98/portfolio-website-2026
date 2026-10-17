@@ -229,12 +229,25 @@ export default function Resume() {
         <main
           style={{ padding: "0 clamp(1.5rem, 5vw, 5rem) 50vh", maxWidth: 800 }}
         >
+          <div style={{ marginBottom: "48px" }}>
+            <h1
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                marginTop: "4rem",
+                fontWeight: 400,
+                color: SWATCHES.charcoal,
+              }}
+            >
+              Background in Brief
+            </h1>
+          </div>
           {/* Experience */}
           <section
             ref={(el) => (refs.current["experience"] = el)}
             data-section="experience"
             style={{
-              padding: "4rem 0 3.5rem",
+              padding: "1rem 0 3.5rem",
               borderBottom: `1px solid ${SWATCHES.creamDark}`,
             }}
           >
@@ -254,11 +267,11 @@ export default function Resume() {
                 style={{
                   position: "absolute",
                   left: 0,
-                  top: "8px",
-                  bottom: "8px",
+                  top: "0px",
+                  bottom: "0px",
                   width: "1px",
                   zIndex: 1,
-                  background: `linear-gradient(to bottom, ${SWATCHES.brass}, ${SWATCHES.tobacco})`,
+                  background: `linear-gradient(to bottom, ${SWATCHES.tobacco}, ${SWATCHES.brass})`,
                   borderRadius: "1px",
                 }}
               />
@@ -390,8 +403,9 @@ export default function Resume() {
                 key={i}
                 style={{
                   borderTop: i > 0 ? `1px solid ${SWATCHES.creamDark}` : "none",
-                  background: hoveredSection === i ? SWATCHES.creamMid : "transparent",
-                  padding: "1.5rem 1.25rem"
+                  background:
+                    hoveredSection === i ? SWATCHES.creamMid : "transparent",
+                  padding: "1.5rem 1.25rem",
                 }}
               >
                 <div
@@ -443,7 +457,15 @@ export default function Resume() {
             ref={(el) => (refs.current["pursuits"] = el)}
             style={{ marginBottom: "72px" }}
           >
-            <SectionLabel>Pursuits &amp; Engagements</SectionLabel>
+            <SectionLabel
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontWeight: 800,
+                fontSize: "1.5rem",
+              }}
+            >
+              Pursuits &amp; Engagements
+            </SectionLabel>
             <div
               style={{ display: "flex", flexDirection: "column", gap: "36px" }}
             >

@@ -11,7 +11,7 @@ export default function Photography() {
   const visible = PHOTOS.filter(p => col === 'all' || p.col === col)
 
   return (
-    <div style={{ paddingTop: 60, background: SWATCHES.cream }}>
+    <div style={{ background: SWATCHES.cream }}>
       <style>{`
         @media (max-width: 900px) { .photo-masonry { columns: 2 !important; } }
         @media (max-width: 540px) { .photo-masonry { columns: 1 !important; } }
@@ -19,23 +19,24 @@ export default function Photography() {
 
       {/* Header */}
       <div style={{
-        padding: '5rem clamp(1.5rem, 5vw, 5rem) 3rem',
+        padding: '4rem clamp(1.5rem, 5vw, 5rem) 1rem',
         borderBottom: `1px solid ${SWATCHES.creamDark}`,
       }}>
-        <div style={{
-          fontFamily: 'var(--font-mono)', fontSize: '0.68rem',
-          color: SWATCHES.tobacco, letterSpacing: '0.07em', marginBottom: '1rem',
-        }}>Personal work</div>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
-          <h1 style={{
-            fontFamily: 'var(--font-cormorant)',
-            fontSize: 'clamp(2.25rem, 4vw, 3.25rem)',
-            fontWeight: 600, lineHeight: 1.1, color: SWATCHES.charcoal,
-          }}>Photography</h1>
-          <p style={{
-            fontFamily: 'var(--font-mono)', fontSize: '0.68rem',
-            color: SWATCHES.charcoal50, maxWidth: 280, lineHeight: 1.7, textAlign: 'right',
-          }}>Shot on film and digital.<br />Europe, New York, and elsewhere.</p>
+          <div style={{ marginBottom: "48px" }}>
+            <h1
+              style={{
+                fontFamily: "var(--font-cormorant)",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                marginTop: "4rem",
+                fontWeight: 400,
+                color: SWATCHES.charcoal,
+              }}
+            >
+              Photography
+            </h1>
+          </div>
+          
         </div>
       </div>
 
@@ -86,7 +87,9 @@ export default function Photography() {
                 </div>
               </div>
             </div>
+            
           ))}
+          
         </div>
       </div>
     </div>
