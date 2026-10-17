@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { SWATCHES } from "@/lib/tokens";
 import Typewriter from "@/components/Typewriter";
 import Link from "next/link";
@@ -37,38 +38,64 @@ export default function Home() {
     <div style={{ paddingTop: 60 }}>
       <style>{`
         .hero-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 60px); }
-        .hero-img  { min-height: 260px; }
+        .hero-img  { border-right: 1px solid ${SWATCHES.creamDark}; }
+        .hero-photo-frame { width: min(360px, 70%); }
         @media (max-width: 768px) {
           .hero-grid { grid-template-columns: 1fr; }
-          .hero-img  { height: 260px; min-height: unset; }
+          .hero-img  { border-right: none; border-bottom: 1px solid ${SWATCHES.creamDark}; padding: 3rem 0 !important; }
+          .hero-photo-frame { width: min(300px, 60%); }
         }
         @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none !important; } }
       `}</style>
 
       <div className="hero-grid">
-        {/* Left: gradient panel */}
+        {/* Left: hero headshot — a fixed-proportion framed portrait rather
+            than a full-bleed panel, so it sits closer in visual weight to
+            the text column instead of towering over it. */}
         <div
           className="hero-img"
-          style={{
-            background:
-              "linear-gradient(160deg, #3A2B1F 0%, #5C3D2E 28%, #7B5438 52%, #4A5240 76%, #2E3F5C 100%)",
-            position: "relative",
-          }}
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "3rem" }}
         >
-          <span
+          <div
+            className="hero-photo-frame"
             style={{
-              position: "absolute",
-              bottom: "2rem",
-              left: "2rem",
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.62rem",
-              color: "rgba(242,237,228,0.3)",
-              letterSpacing: "0.06em",
+              position: "relative",
+              aspectRatio: "3.25 / 5",
+              overflow: "hidden",
+              border: `1px solid ${SWATCHES.creamDark}`,
             }}
           >
-            Chicago, IL
-          </span>
+            <Image
+              src="/photos/headshots/hero-headshot.jpg"
+              alt="Joe Zampitella"
+              fill
+              priority
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 60vw, 360px"
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 40%)",
+              }}
+            />
+            <span
+              style={{
+                position: "absolute",
+                bottom: "1.25rem",
+                left: "1.25rem",
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.6rem",
+                color: "rgba(242,237,228,0.5)",
+                letterSpacing: "0.06em",
+              }}
+            >
+              Chicago, IL
+            </span>
+          </div>
         </div>
 
         {/* Right: text */}
@@ -130,7 +157,7 @@ export default function Home() {
           </div>
 
           {/* Page tiles */}
-          <Timeline/>
+          {/* <Timeline/> */}
         </div>
       </div>
 

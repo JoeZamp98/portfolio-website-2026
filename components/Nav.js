@@ -38,6 +38,7 @@ export default function Nav() {
           fontSize: "1.05rem",
           fontWeight: 700,
           color: SWATCHES.charcoal,
+          textDecoration: 'none'
         }}
       >
         Joe Zampitella
@@ -59,6 +60,7 @@ export default function Nav() {
                   : "1.5px solid transparent",
                 padding: "0.4rem 0.75rem",
                 transition: "color 0.15s, border-color 0.15s",
+                textDecoration: 'none'
               }}
             >
               {label}
