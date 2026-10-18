@@ -55,7 +55,12 @@ export default function Home() {
             the text column instead of towering over it. */}
         <div
           className="hero-img"
-          style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "3rem" }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "3rem",
+          }}
         >
           <div
             className="hero-photo-frame"
@@ -94,17 +99,7 @@ export default function Home() {
             padding: "5rem clamp(1.5rem, 5vw, 5rem) 5rem 4rem",
           }}
         >
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.7rem",
-              color: SWATCHES.tobacco,
-              letterSpacing: "0.06em",
-              marginBottom: "1.25rem",
-            }}
-          >
-            Full-Stack Engineer · Chicago Booth MBA Candidate
-          </div>
+
 
           <h1
             style={{
@@ -113,16 +108,35 @@ export default function Home() {
               lineHeight: 1.0,
               color: SWATCHES.charcoal,
               marginBottom: "0.75rem",
-              
             }}
           >
             Joseph Zampitella
           </h1>
 
-          <div style={{ minHeight: "1.4em", marginBottom: "2.25rem" }}>
+          <div style={{ minHeight: "1.4em", marginBottom: "2.5rem" }}>
             <Typewriter />
           </div>
-
+          <div
+            style={{
+              width: "56px",
+              height: "2px",
+              background: `linear-gradient(to right, ${SWATCHES.brass}, ${SWATCHES.tobacco})`,
+              borderRadius: "1px",
+              marginBottom: "2.5rem",
+            }}
+          />
+          <div
+            style={{
+              fontFamily: "var(--font-cormorant)",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+              color: SWATCHES.tobacco,
+              letterSpacing: "0.06em",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Full-Stack Engineer · Chicago Booth MBA Candidate
+          </div>
           <div
             style={{
               fontSize: "0.975rem",
@@ -131,28 +145,25 @@ export default function Home() {
               marginBottom: "3rem",
             }}
           >
-            <p>
-              I build data platforms, cloud infrastructure, and client-facing
-              products from zero to one — the kind that actually ship and stay running.
+            <p style={{fontWeight:400}}>
+              Thanks for visiting, I'm Joe!  
             </p>
-            <p style={{ marginTop: "0.85rem" }}>
-              Four years at Veris Insights. 250+ enterprise clients. Evening MBA at Booth. I think hard about both the code and the business case behind it.
+            <p style={{ marginTop: "0.85rem", fontWeight:400 }}>
+            In my current role, I am a full-stack engineer at Veris Insights, where I build data platforms, cloud infrastructure, and client-facing tools our Fortune 1000 clients use to make talent decisions.  I came to engineering from the business side, with early career experience in research and commercial real estate roles, and taught myself how to code and build infrastructure along the way.  This path has significantly informed my Engineering style.  My awareness of both business and technical considerations empowers me to develop compelling solutions to even the most complex challenges.</p>
+            <p style={{ marginTop: "0.85rem", fontWeight:400 }}>
+              In addition to my current full-time role, I'm gradually pursuing an MBA part-time at Chicago Booth, focusing on statistics and business law courses. Outside of work and school, you'll often find me running, cooking, or forecasting the weather.  I am planning to relocate from Chicago, IL to New York, NY in early 2027.
             </p>
           </div>
 
-          <div style={{
-            fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
-            color: SWATCHES.charcoal30, letterSpacing: '0.06em', marginTop: '0.4rem',
-            marginBottom: '1.25rem',
-          }}>Chicago, IL / New York, NY</div>
+
 
           {/* Page tiles */}
           {/* <Timeline/> */}
         </div>
       </div>
 
-      {/* Marquee */}
-      <div
+      {/* Marquee – may add this back later but removing it for now; I think the content was a bit redundant*/}
+      {/* <div
         style={{
           borderTop: `1px solid ${SWATCHES.creamDark}`,
           overflow: "hidden",
@@ -182,7 +193,7 @@ export default function Home() {
             </span>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

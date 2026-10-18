@@ -4,15 +4,19 @@ import { useState, useEffect, useRef } from "react";
 import { SWATCHES } from "@/lib/tokens";
 
 const LINES = [
-  "FastAPI + React + AWS Lambda  →  production",
-  "Python · TypeScript · SQL · R  →  daily drivers",
-  "zero-to-one platform  →  250+ enterprise clients",
-  "Snowflake + MongoDB  →  data layer",
-  "LLM pipelines + Gong  →  revenue ops",
+  "Mapped thousands of Salesforce contacts to regional hubs using the Haversine algorithm",
+  "Built three React-based client data platforms serving hundreds of enterprise clients",
+  "Cut publication time for tabular research reports from weeks to minutes",
+  "Designed an array of serverless survey processing pipelines in AWS",
 ];
+
+const TYPE_MS = 26;
+const PAUSE_MS = 1800;
+const FADE_MS = 350;
 
 export default function Typewriter() {
   const [text, setText] = useState("");
+  const [visible, setVisible] = useState(true);
 
   const timer = useRef(null);
 
@@ -24,28 +28,27 @@ export default function Typewriter() {
 
     let lineIdx = 0;
     let charIdx = 0;
-    let deleting = false;
 
     function tick() {
-      const cur = LINES[lineIdx];
+      charIdx += 1;
+      setText(LINES[lineIdx].slice(0, charIdx));
 
-      if (!deleting) {
-        charIdx += 1;
-        setText(cur.slice(0, charIdx));
-        if (charIdx === cur.length) {
-          deleting = true;
-          timer.current = setTimeout(tick, 3000);
-        } else timer.current = setTimeout(tick, 110);
-      } else {
-        charIdx -= 1;
-        setText(cur.slice(0, charIdx));
-
-        if (charIdx === 0) {
-          deleting = false;
-          lineIdx = (lineIdx + 1) % LINES.length;
-          timer.current = setTimeout(tick, 600);
-        } else timer.current = setTimeout(tick, 55);
+      if (charIdx < LINES[lineIdx].length) {
+        timer.current = setTimeout(tick, TYPE_MS);
+        return;
       }
+
+      // full line typed — hold, then fade out and swap to the next line
+      timer.current = setTimeout(() => {
+        setVisible(false);
+        timer.current = setTimeout(() => {
+          lineIdx = (lineIdx + 1) % LINES.length;
+          charIdx = 0;
+          setText("");
+          setVisible(true);
+          timer.current = setTimeout(tick, TYPE_MS);
+        }, FADE_MS);
+      }, PAUSE_MS);
     }
 
     timer.current = setTimeout(tick, 900);
@@ -60,7 +63,14 @@ export default function Typewriter() {
         color: SWATCHES.navy,
       }}
     >
-      {text}
+      <span
+        style={{
+          opacity: visible ? 1 : 0,
+          transition: `opacity ${FADE_MS}ms ease`,
+        }}
+      >
+        {text}
+      </span>
       <style>{`
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         @media (prefers-reduced-motion: reduce) { .cursor { animation: none !important; } }
@@ -71,7 +81,7 @@ export default function Typewriter() {
           display: "inline-block",
           width: 2,
           height: "0.85em",
-          background: SWATCHES.tobacco,
+          background: SWATCHES.navy,
           verticalAlign: "text-bottom",
           animation: "blink 0.9s step-end infinite",
           marginLeft: 1,
