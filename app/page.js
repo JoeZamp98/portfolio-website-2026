@@ -5,6 +5,7 @@ import { SWATCHES } from "@/lib/tokens";
 import Typewriter from "@/components/Typewriter";
 import Link from "next/link";
 import Timeline from "@/components/Timeline";
+import SocialLinks from "@/components/SocialLinks";
 
 const TILES = [
   { label: "Resume", sub: "Experience & skills", href: "/resume" },
@@ -99,8 +100,6 @@ export default function Home() {
             padding: "5rem clamp(1.5rem, 5vw, 5rem) 5rem 4rem",
           }}
         >
-
-
           <h1
             style={{
               fontFamily: "var(--font-abolition)",
@@ -137,6 +136,7 @@ export default function Home() {
           >
             Full-Stack Engineer · Chicago Booth MBA Candidate
           </div>
+          <div style={{ marginBottom: "1.75rem" }}></div>
           <div
             style={{
               fontSize: "0.975rem",
@@ -145,20 +145,32 @@ export default function Home() {
               marginBottom: "3rem",
             }}
           >
-            <p style={{fontWeight:400}}>
-              Thanks for visiting, I'm Joe!  
+            <p style={{ fontWeight: 400 }}>Thanks for visiting, I'm Joe!</p>
+            <p style={{ marginTop: "0.85rem", fontWeight: 400 }}>
+              In my current role, I am a full-stack engineer at Veris Insights,
+              where I build data platforms, cloud infrastructure, and
+              client-facing tools our Fortune 1000 clients use to make talent
+              decisions. I came to engineering from the business side, with
+              early career experience in research and commercial real estate
+              roles, and taught myself how to code and build infrastructure
+              along the way. This path has significantly informed my Engineering
+              style. My awareness of both business and technical considerations
+              empowers me to develop compelling solutions to even the most
+              complex challenges.
             </p>
-            <p style={{ marginTop: "0.85rem", fontWeight:400 }}>
-            In my current role, I am a full-stack engineer at Veris Insights, where I build data platforms, cloud infrastructure, and client-facing tools our Fortune 1000 clients use to make talent decisions.  I came to engineering from the business side, with early career experience in research and commercial real estate roles, and taught myself how to code and build infrastructure along the way.  This path has significantly informed my Engineering style.  My awareness of both business and technical considerations empowers me to develop compelling solutions to even the most complex challenges.</p>
-            <p style={{ marginTop: "0.85rem", fontWeight:400 }}>
-              In addition to my current full-time role, I'm gradually pursuing an MBA part-time at Chicago Booth, focusing on statistics and business law courses. Outside of work and school, you'll often find me running, cooking, or forecasting the weather.  I am planning to relocate from Chicago, IL to New York, NY in early 2027.
+            <p style={{ marginTop: "0.85rem", fontWeight: 400 }}>
+              In addition to my current full-time role, I'm gradually pursuing
+              an MBA part-time at Chicago Booth, focusing on statistics and
+              business law courses. Outside of work and school, you'll often
+              find me running, cooking, or forecasting the weather. I am
+              planning to relocate from Chicago, IL to New York, NY in early
+              2027.
             </p>
           </div>
 
-
-
+          <SocialLinks />
           {/* Page tiles */}
-          {/* <Timeline/> */}
+          {/* <Timeline/> - may reactivate this but not thilled with the formatting yet.*/}
         </div>
       </div>
 
